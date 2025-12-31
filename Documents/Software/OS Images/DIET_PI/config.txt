@@ -1,0 +1,52 @@
+# Docs: https://www.raspberrypi.com/documentation/computers/config_txt.html
+# Overlays: https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README
+
+#-------Display---------
+# Max allocated framebuffers: Set to "0" in headless mode to reduce memory usage
+# - Defaults to "2" on RPi4 and "1" on earlier RPi models
+max_framebuffers=0
+
+
+
+
+#-------GPU memory splits-------
+gpu_mem_256=16
+gpu_mem_512=16
+gpu_mem_1024=16
+
+#-------Boot splash screen------
+disable_splash=1
+
+#-------Onboard sound-----------
+dtparam=audio=off
+
+#-------I2C-------------
+#dtparam=i2c_arm=off
+#dtparam=i2c_arm_baudrate=100000
+
+#-------SPI-------------
+#dtparam=spi=off
+
+#-------Serial/UART-----
+# NB: "enable_uart=1" will enforce "core_freq=250" on RPi models with onboard WiFi.
+enable_uart=1
+
+#-------SD card HPD-----
+# Comment to enable SD card hot-plug detection, while booting via USB or network.
+# NB: This causes constant CPU load and kernel errors when no SD card is inserted.
+dtparam=sd_poll_once
+
+#-------Overclock-------
+temp_limit=65
+initial_turbo=20
+
+#over_voltage=0
+#arm_freq=900
+#core_freq=250
+#sdram_freq=400
+
+#over_voltage_min=0
+#arm_freq_min=300
+#core_freq_min=250
+#sdram_freq_min=400
+arm_64bit=1

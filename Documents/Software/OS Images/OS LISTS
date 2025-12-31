@@ -1,0 +1,15 @@
+# A list of OS's to test and comapare #
+
+For the baseline generic os the current system is:
+DietPi_RPi234-ARMv8-Trixie
+
+Capacity Requirements by OSEven if a "Lite" OS only takes 2GB, Docker needs "buffer" space for image pulling and volume storage.
+| HardwareOS | Type  | Min. Suggested Size | Max. Suggested Size |
+|RPi 3 | DietPi (Lite) | 16GB | 64GB (Card speed is the bottleneck)
+| RPi 4 | RPi OS / Ubuntu | 32GB | 128GB | |
+| RPi 5 |Ubuntu Server | 32GB | 256GB  | (Consider NVMe instead) |
+| Odroid | Armbian | 32GB | 256GB | (Consider eMMC instead)|
+
+To start I will use 64 GB SD U1 cards 
+
+

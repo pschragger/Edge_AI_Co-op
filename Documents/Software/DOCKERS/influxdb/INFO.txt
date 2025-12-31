@@ -1,0 +1,7 @@
+Access the Dashboard: Open your browser and go to:
+
+Mac: http://localhost:8086
+
+Raspberry Pi: http://<your-pi-ip-address>:8086
+
+Login with the USERNAME and PASSWORD you defined in the environment section of the compose file.

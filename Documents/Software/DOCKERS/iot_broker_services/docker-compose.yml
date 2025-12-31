@@ -1,0 +1,45 @@
+
+version: '3.8'
+
+services:
+  # MQTT Broker (Mosquitto)
+  mqtt-broker:
+    image: eclipse-mosquitto:latest
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+
+  # Redis Database
+  redis:
+    image: redis:alpine
+    container_name: redis-db
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+  # Node-RED
+  nodered:
+    image: nodered/node-red:latest
+    container_name: node-red
+    environment:
+      - TZ=America/New_York
+    ports:
+      - "1880:1880"
+    volumes:
+      - node-red-data:/data
+    depends_on:
+      - mqtt-broker
+      - redis
+    restart: unless-stopped
+
+volumes:
+  node-red-data:
+  redis-data:

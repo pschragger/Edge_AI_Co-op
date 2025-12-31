@@ -1,0 +1,4 @@
+
+To clean up local instances of mosquitto on a mac
+    sudo lsof -i :1883
+    kill -9 PID

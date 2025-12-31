@@ -1,0 +1,21 @@
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=influxdb_user
+      - DOCKER_INFLUXDB_INIT_PASSWORD=secure_pwd
+      - DOCKER_INFLUXDB_INIT_ORG=iot.com
+      - DOCKER_INFLUXDB_INIT_BUCKET=influxdb_bucket
+      - DOCKER_INFLUXDB_INIT_RETENTION=1w
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=sh-secret-token
+volumes:
+  influxdb_data:
+  influxdb_config:
